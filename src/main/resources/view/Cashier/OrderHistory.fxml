@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #F2F2F2;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OrderHistoryController">
+   <left>
+      <VBox prefHeight="346.0" prefWidth="182.0" style="-fx-background-color: #DADADA;" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="DashBoard" textFill="#333333">
+               <VBox.margin>
+                  <Insets left="45.0" top="40.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="73.0" layoutY="50.0" text="Sales" textFill="#333333">
+               <VBox.margin>
+                  <Insets left="69.0" top="40.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="79.0" layoutY="120.0" text="Inventory" textFill="#333333">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="47.0" top="40.0" />
+               </VBox.margin>
+            </Label>
+            <Label layoutX="57.0" layoutY="191.0" text="Order History" textFill="#333333">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="30.0" top="40.0" />
+               </VBox.margin>
+            </Label>
+            <Label layoutX="40.0" layoutY="261.0" text="Reports" textFill="#333333">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="54.0" top="40.0" />
+               </VBox.margin>
+            </Label>
+            <Label layoutX="64.0" layoutY="332.0" text="Suppliers" textFill="#333333">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="47.0" top="40.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+   </left>
+   <top>
+      <AnchorPane prefHeight="79.0" prefWidth="1325.0" style="-fx-background-color: #001F3F;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="75.0" fitWidth="122.0" layoutX="60.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../resources/fashion-logo.png" />
+               </image>
+            </ImageView>
+            <TextField alignment="CENTER" layoutX="566.0" layoutY="30.0" maxWidth="697.0" minWidth="220.0" prefHeight="27.0" prefWidth="697.0" promptText="Search Item" style="-fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-radius: 10px; -fx-font-style: #ffffff; -fx-text-fill: #ffffff;" AnchorPane.leftAnchor="566.0" AnchorPane.rightAnchor="538.0" />
+            <Label layoutX="1568.0" layoutY="33.0" text="Hi ! Srinath" textFill="WHITE" AnchorPane.rightAnchor="162.4000000000001">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="24.0" fitWidth="35.0" layoutX="1217.6" layoutY="31.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="83.20000000000005">
+               <image>
+                  <Image url="@../../../../../../resources/MemoryLogout%20(1).png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <AnchorPane prefHeight="721.0" prefWidth="962.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="-104.0" />
+         </BorderPane.margin>
+         <children>
+            <TableView layoutX="148.0" layoutY="34.0" prefHeight="390.0" prefWidth="1022.0">
+               <columns>
+                  <TableColumn prefWidth="73.60005187988281" text="ID" />
+                  <TableColumn prefWidth="252.53329467773438" text="Cashier Name" />
+                  <TableColumn prefWidth="159.99996948242188" text="Payment Type" />
+                  <TableColumn prefWidth="178.4000244140625" text="Total (Rs.)" />
+                  <TableColumn prefWidth="214.39990234375" text="Order Date" />
+                  <TableColumn prefWidth="146.400146484375" text="Status" />
+               </columns>
+            </TableView>
+            <Pane layoutX="148.0" layoutY="442.0" prefHeight="269.0" prefWidth="1022.0" style="-fx-border-color: #000;">
+               <children>
+                  <Label layoutX="77.0" layoutY="40.0" text="Order ID :">
+                     <font>
+                        <Font name="SansSerif Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="177.0" layoutY="42.0" text="001">
+                     <font>
+                        <Font name="SansSerif Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="27.0" layoutY="98.0" text="Payment Type :">
+                     <font>
+                        <Font name="SansSerif Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="431.0" layoutY="46.0" text="Date :">
+                     <font>
+                        <Font name="SansSerif Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="352.0" layoutY="99.0" text="Cashier Name :">
+                     <font>
+                        <Font name="SansSerif Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="212.0" layoutY="149.0" text="Total : Rs.">
+                     <font>
+                        <Font name="SansSerif Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <JFXButton layoutX="363.0" layoutY="198.0" prefHeight="40.0" prefWidth="174.0" style="-fx-background-color: #D60024;" text="Returned" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </JFXButton>
+                  <Label layoutX="176.0" layoutY="98.0" text="Cash">
+                     <font>
+                        <Font name="SansSerif Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="504.0" layoutY="45.0" text="2024/10/15">
+                     <font>
+                        <Font name="SansSerif Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="504.0" layoutY="97.0" text="Srinath">
+                     <font>
+                        <Font name="SansSerif Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="304.0" layoutY="149.0" text="20000">
+                     <font>
+                        <Font name="SansSerif Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TableView layoutX="654.0" layoutY="35.0" prefHeight="200.0" prefWidth="327.0">
+                    <columns>
+                      <TableColumn prefWidth="170.9334716796875" text="Description" />
+                      <TableColumn prefWidth="46.6666259765625" text="Qty" />
+                        <TableColumn prefWidth="107.4664306640625" text="Total" />
+                    </columns>
+                  </TableView>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
