@@ -74,7 +74,7 @@
          <children>
             <ImageView fitHeight="75.0" fitWidth="122.0" layoutX="60.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../resources/fashion-logo.png" />
+                  <Image url="@../../img/fashion-logo.png" />
                </image>
             </ImageView>
             <TextField alignment="CENTER" layoutX="566.0" layoutY="30.0" maxWidth="697.0" minWidth="220.0" prefHeight="27.0" prefWidth="697.0" promptText="Search Item" style="-fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-radius: 10px; -fx-font-style: #ffffff; -fx-text-fill: #ffffff;" AnchorPane.leftAnchor="566.0" AnchorPane.rightAnchor="538.0" />
@@ -85,7 +85,7 @@
             </Label>
             <ImageView fitHeight="24.0" fitWidth="35.0" layoutX="1217.6" layoutY="31.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="83.20000000000005">
                <image>
-                  <Image url="@../../../../../../resources/MemoryLogout%20(1).png" />
+                  <Image url="@../../img/MemoryLogout.png" />
                </image>
             </ImageView>
          </children>
@@ -97,13 +97,13 @@
             <Insets left="-104.0" />
          </BorderPane.margin>
          <children>
-            <TableView layoutX="148.0" layoutY="34.0" prefHeight="390.0" prefWidth="1022.0">
+            <TableView fx:id="tblSupplierDetails" layoutX="148.0" layoutY="34.0" prefHeight="390.0" prefWidth="1022.0">
                <columns>
-                  <TableColumn prefWidth="73.60005187988281" text="ID" />
-                  <TableColumn prefWidth="252.2667236328125" text="Supplier Name" />
-                  <TableColumn prefWidth="245.86672973632812" text="Email" />
-                  <TableColumn prefWidth="256.00006103515625" text="Company" />
-                  <TableColumn prefWidth="198.4000244140625" text="Product ID" />
+                  <TableColumn fx:id="colSupplierId" prefWidth="73.60005187988281" text="ID" />
+                  <TableColumn fx:id="colSupplierName" prefWidth="252.2667236328125" text="Supplier Name" />
+                  <TableColumn fx:id="colEmail" prefWidth="245.86672973632812" text="Email" />
+                  <TableColumn fx:id="colCompany" prefWidth="275.99993896484375" text="Company" />
+                  <TableColumn fx:id="colDate" prefWidth="180.0" text="Added Date" />
                </columns>
             </TableView>
             <Pane layoutX="148.0" layoutY="442.0" prefHeight="254.0" prefWidth="1022.0" style="-fx-border-color: #000;">
@@ -113,7 +113,7 @@
                         <Font name="SansSerif Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="206.0" layoutY="42.0" text="001">
+                  <Label fx:id="lblSupplierId" layoutX="206.0" layoutY="42.0" text="Auto Genarated">
                      <font>
                         <Font name="SansSerif Bold" size="18.0" />
                      </font>
@@ -123,39 +123,39 @@
                         <Font name="SansSerif Bold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="666.0" layoutY="96.0" prefHeight="25.0" prefWidth="308.0" />
+                  <TextField fx:id="txtSupplierEmail" layoutX="666.0" layoutY="96.0" prefHeight="25.0" prefWidth="308.0" />
                   <Label layoutX="493.0" layoutY="41.0" text="Supplier Name :">
                      <font>
                         <Font name="SansSerif Bold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="664.0" layoutY="43.0" prefHeight="25.0" prefWidth="309.0" />
+                  <TextField fx:id="txtSupplierName" layoutX="664.0" layoutY="43.0" prefHeight="25.0" prefWidth="309.0" />
                   <Label layoutX="570.0" layoutY="94.0" text="Email :">
                      <font>
                         <Font name="SansSerif Bold" size="18.0" />
                      </font>
                   </Label>
-                  <JFXButton layoutX="91.0" layoutY="177.0" prefHeight="40.0" prefWidth="174.0" style="-fx-background-color: #00AA25;" text="Add" textFill="WHITE">
+                  <JFXButton layoutX="91.0" layoutY="177.0" onAction="#btnAddSupplierOnAction" prefHeight="40.0" prefWidth="174.0" style="-fx-background-color: #00AA25;" text="Add" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton layoutX="289.0" layoutY="177.0" prefHeight="40.0" prefWidth="174.0" style="-fx-background-color: #0051A5;" text="Update" textFill="WHITE">
+                  <JFXButton layoutX="289.0" layoutY="177.0" onAction="#btnUpdateSupplierOnAction" prefHeight="40.0" prefWidth="174.0" style="-fx-background-color: #0051A5;" text="Update" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton layoutX="505.0" layoutY="175.0" prefHeight="40.0" prefWidth="174.0" style="-fx-background-color: #D60024;" text="Delete" textFill="WHITE">
+                  <JFXButton layoutX="505.0" layoutY="175.0" onAction="#btnDeleteSupplierOnAction" prefHeight="40.0" prefWidth="174.0" style="-fx-background-color: #D60024;" text="Delete" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton layoutX="721.0" layoutY="172.0" prefHeight="40.0" prefWidth="174.0" style="-fx-background-color: #787878;" text="Clear" textFill="WHITE">
+                  <JFXButton layoutX="721.0" layoutY="172.0" onAction="#btnClearFieldsOnAction" prefHeight="40.0" prefWidth="174.0" style="-fx-background-color: #787878;" text="Clear" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </JFXButton>
-                  <TextField layoutX="202.0" layoutY="97.0" prefHeight="25.0" prefWidth="216.0" />
+                  <TextField fx:id="txtSupplierCompany" layoutX="202.0" layoutY="97.0" prefHeight="25.0" prefWidth="216.0" />
                </children>
             </Pane>
          </children>

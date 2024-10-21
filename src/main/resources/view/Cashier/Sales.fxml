@@ -97,19 +97,19 @@
             <Insets left="-104.0" />
          </BorderPane.margin>
          <children>
-            <TableView layoutX="159.0" layoutY="41.0" prefHeight="650.0" prefWidth="630.0">
+            <TableView fx:id="tblProduct" layoutX="159.0" layoutY="41.0" prefHeight="650.0" prefWidth="630.0">
               <columns>
-                <TableColumn prefWidth="277.60008239746094" text="Description" />
-                  <TableColumn prefWidth="137.86660766601562" text="Price(Rs)" />
-                  <TableColumn prefWidth="81.33331298828125" text="Size" />
-                  <TableColumn prefWidth="133.86663818359375" text="Category" />
+                <TableColumn fx:id="colDescription" prefWidth="277.60008239746094" text="Description" />
+                  <TableColumn fx:id="colPrice" prefWidth="137.86660766601562" text="Price(Rs)" />
+                  <TableColumn fx:id="colSize" prefWidth="81.33331298828125" text="Size" />
+                  <TableColumn fx:id="colCategory" prefWidth="133.86663818359375" text="Category" />
               </columns>
             </TableView>
-            <TableView layoutX="807.0" layoutY="39.0" prefHeight="443.0" prefWidth="378.0">
+            <TableView fx:id="tblCartItems" layoutX="807.0" layoutY="39.0" prefHeight="443.0" prefWidth="378.0">
               <columns>
-                <TableColumn prefWidth="194.13330078125" text="Description" />
-                <TableColumn prefWidth="62.666748046875" text="QTY" />
-                  <TableColumn prefWidth="125.333251953125" text="Total (Rs)" />
+                <TableColumn fx:id="colCartItmDescription" prefWidth="194.13330078125" text="Description" />
+                <TableColumn fx:id="colQty" prefWidth="62.666748046875" text="QTY" />
+                  <TableColumn fx:id="colTotal" prefWidth="125.333251953125" text="Total (Rs)" />
               </columns>
             </TableView>
             <Label layoutX="962.0" layoutY="499.0" text="Net Total : Rs.">
@@ -117,7 +117,7 @@
                   <Font name="SansSerif Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="1098.0" layoutY="500.0" text="20000">
+            <Label fx:id="lblNetTotal" layoutX="1098.0" layoutY="500.0" text="20000">
                <font>
                   <Font name="SansSerif Bold" size="18.0" />
                </font>
@@ -132,41 +132,37 @@
                   <Font name="SansSerif Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="1100.0" layoutY="534.0" text="20000">
+            <Label fx:id="lblChange" layoutX="1101.0" layoutY="569.0" text="20000">
                <font>
                   <Font name="SansSerif Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="1101.0" layoutY="569.0" text="20000">
-               <font>
-                  <Font name="SansSerif Bold" size="18.0" />
-               </font>
-            </Label>
-            <JFXButton layoutX="812.0" layoutY="525.0" prefHeight="60.0" prefWidth="138.0" style="-fx-background-color: #FF6F61;" text="Remove Item" textFill="WHITE">
+            <JFXButton layoutX="812.0" layoutY="525.0" onAction="#btnRemoveCartItemOnAction" prefHeight="60.0" prefWidth="138.0" style="-fx-background-color: #FF6F61;" text="Remove Item" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </JFXButton>
-            <JFXCheckBox layoutX="883.0" layoutY="615.0" text="Cash">
+            <JFXCheckBox layoutX="883.0" layoutY="615.0" onAction="#chkCash" text="Cash">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </JFXCheckBox>
-            <JFXCheckBox layoutX="995.0" layoutY="615.0" text="Card">
+            <JFXCheckBox layoutX="995.0" layoutY="615.0" onAction="#chkCard" text="Card">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </JFXCheckBox>
-            <JFXButton layoutX="817.0" layoutY="661.0" prefHeight="40.0" prefWidth="233.0" style="-fx-background-color: #0051A5;" text="Paid" textFill="WHITE">
+            <JFXButton layoutX="817.0" layoutY="661.0" onAction="#btnPaidOnAction" prefHeight="40.0" prefWidth="233.0" style="-fx-background-color: #0051A5;" text="Paid" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="1077.0" layoutY="660.0" prefHeight="40.0" prefWidth="119.0" style="-fx-background-color: #FF6F61;" text="Cancel" textFill="WHITE">
+            <JFXButton layoutX="1077.0" layoutY="660.0" onAction="#btnCancelOnAction" prefHeight="40.0" prefWidth="119.0" style="-fx-background-color: #FF6F61;" text="Cancel" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </JFXButton>
+            <TextField fx:id="txtAmount" layoutX="1089.0" layoutY="535.0" prefHeight="26.0" prefWidth="101.0" />
          </children>
       </AnchorPane>
    </center>

@@ -120,12 +120,36 @@ public class InventoryController implements Initializable {
 
     @FXML
     void btnDeleteProductOnAction(ActionEvent event) {
-
+        ProductService productService = ServiceFactory.getInstance().getServiceType(ServiceType.Product);
+        if (productService.deleteProduct(Integer.parseInt(lblProductId.getText()))){
+            new Alert(Alert.AlertType.INFORMATION).show();
+            loadProductTblData();
+            clearFields();
+        } else {
+            new Alert(Alert.AlertType.ERROR).show();
+        }
     }
+
 
     @FXML
     void btnUpdateProductOnAction(ActionEvent event) {
-
+        ProductService productService = ServiceFactory.getInstance().getServiceType(ServiceType.Product);
+        Product product = new Product(
+                00,
+                cmbSupId.getValue(),
+                txtDescription.getText(),
+                cmbSize.getValue(),
+                txtPrice.getText(),
+                txtQty.getText(),
+                txtCategory.getText()
+        );
+        if (productService.updateProductInfo(product, Integer.parseInt(lblProductId.getText()))){
+            new Alert(Alert.AlertType.INFORMATION).show();
+            loadProductTblData();
+            clearFields();
+        } else {
+            new Alert(Alert.AlertType.ERROR).show();
+        }
     }
 
     private void loadProductTblData() {
@@ -140,7 +164,7 @@ public class InventoryController implements Initializable {
         txtPrice.setText("");
         txtQty.setText("");
         txtCategory.setText("");
-        lblProductId.setText("Auto Genarated");
+        lblProductId.setText("Auto Generated");
     }
 
     private void addValueToText(Product newVal) {

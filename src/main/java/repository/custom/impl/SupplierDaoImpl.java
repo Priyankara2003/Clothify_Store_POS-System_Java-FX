@@ -1,26 +1,25 @@
 package repository.custom.impl;
 
-import entity.ProductEntity;
+import entity.SupplierEntity;
 import org.hibernate.Session;
-import repository.custom.ProductDao;
+import repository.custom.SupplierDao;
 import util.HibernateUtil;
 
 import java.util.List;
 
-public class ProductDaoImpl implements ProductDao {
-
+public class SupplierDaoImpl implements SupplierDao {
     @Override
-    public boolean save(ProductEntity product) {
+    public boolean save(SupplierEntity entity) {
         Session session = HibernateUtil.getSession();
         session.getTransaction().begin();
-        session.persist(product);
+        session.persist(entity);
         session.getTransaction().commit();
         session.close();
         return true;
     }
 
     @Override
-    public boolean update(ProductEntity entity) {
+    public boolean update(SupplierEntity entity) {
         Session session = HibernateUtil.getSession();
         session.getTransaction().begin();
         session.merge(entity);
@@ -30,21 +29,21 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     @Override
-    public List<ProductEntity> findAll() {
+    public List<SupplierEntity> findAll() {
         Session session = HibernateUtil.getSession();
         session.getTransaction().begin();
-        List<ProductEntity> productEntityList = session.createNativeQuery("SELECT * FROM productdetails", ProductEntity.class).getResultList();
+        List<SupplierEntity> supplierEntityList = session.createNativeQuery("SELECT * FROM supplierdetails", SupplierEntity.class).getResultList();
         session.getTransaction().commit();
         session.close();
-        return productEntityList;
+        return supplierEntityList;
     }
 
     @Override
-    public boolean delete(int productId) {
+    public boolean delete(int Id) {
         Session session = HibernateUtil.getSession();
         session.getTransaction().begin();
-        ProductEntity productEntity = session.get(ProductEntity.class, productId);
-        session.remove(productEntity);
+        SupplierEntity supplierEntity = session.get(SupplierEntity.class, Id);
+        session.remove(supplierEntity);
         session.getTransaction().commit();
         session.close();
         return true;

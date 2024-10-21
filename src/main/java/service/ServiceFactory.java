@@ -1,6 +1,7 @@
 package service;
 
 import service.custom.impl.ProductServiceImpl;
+import service.custom.impl.SupplierServiceImpl;
 import util.ServiceType;
 
 public class ServiceFactory {
@@ -16,6 +17,7 @@ public class ServiceFactory {
     public <T extends SuperService>T getServiceType(ServiceType type){
         switch (type){
             case Product: return (T) new ProductServiceImpl();
+            case Supplier: return (T) new SupplierServiceImpl();
         }
         return null;
     }
