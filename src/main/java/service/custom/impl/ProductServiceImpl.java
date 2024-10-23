@@ -1,10 +1,11 @@
 package service.custom.impl;
 
+import dto.OrderDetails;
 import dto.Product;
+import entity.OrderDetailsEntity;
 import entity.ProductEntity;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import repository.DaoFactory;
 import repository.custom.ProductDao;
@@ -46,5 +47,15 @@ public class ProductServiceImpl implements ProductService {
     public boolean deleteProduct(int productId) {
         ProductDao daoType = DaoFactory.getInstance().getDaoType(DaoType.Product);
         return daoType.delete(productId);
+    }
+
+    @Override
+    public boolean updateStock(List<OrderDetails> orderDetails) {
+        ProductDao daoType = DaoFactory.getInstance().getDaoType(DaoType.Product);
+        List<OrderDetailsEntity> orderDetailsEntityList = FXCollections.observableArrayList();
+        for (OrderDetails orderDetails1: orderDetails){
+            orderDetailsEntityList.add(new ModelMapper().map(orderDetails1, OrderDetailsEntity.class));
+        }
+        return daoType.updateStock(orderDetailsEntityList);
     }
 }

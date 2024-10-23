@@ -74,7 +74,7 @@
          <children>
             <ImageView fitHeight="75.0" fitWidth="122.0" layoutX="60.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../resources/fashion-logo.png" />
+                  <Image url="@../../img/fashion-logo.png" />
                </image>
             </ImageView>
             <TextField alignment="CENTER" layoutX="566.0" layoutY="30.0" maxWidth="697.0" minWidth="220.0" prefHeight="27.0" prefWidth="697.0" promptText="Search Item" style="-fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-radius: 10px; -fx-font-style: #ffffff; -fx-text-fill: #ffffff;" AnchorPane.leftAnchor="566.0" AnchorPane.rightAnchor="538.0" />
@@ -85,7 +85,7 @@
             </Label>
             <ImageView fitHeight="24.0" fitWidth="35.0" layoutX="1217.6" layoutY="31.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="83.20000000000005">
                <image>
-                  <Image url="@../../../../../../resources/MemoryLogout%20(1).png" />
+                  <Image url="@../../img/MemoryLogout.png" />
                </image>
             </ImageView>
          </children>
@@ -108,8 +108,8 @@
             <TableView fx:id="tblCartItems" layoutX="807.0" layoutY="39.0" prefHeight="443.0" prefWidth="378.0">
               <columns>
                 <TableColumn fx:id="colCartItmDescription" prefWidth="194.13330078125" text="Description" />
-                <TableColumn fx:id="colQty" prefWidth="62.666748046875" text="QTY" />
-                  <TableColumn fx:id="colTotal" prefWidth="125.333251953125" text="Total (Rs)" />
+                <TableColumn fx:id="colCartItemQty" prefWidth="62.666748046875" text="QTY" />
+                  <TableColumn fx:id="colCartItemTotal" prefWidth="125.333251953125" text="Total (Rs)" />
               </columns>
             </TableView>
             <Label layoutX="962.0" layoutY="499.0" text="Net Total : Rs.">
@@ -117,7 +117,7 @@
                   <Font name="SansSerif Bold" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="lblNetTotal" layoutX="1098.0" layoutY="500.0" text="20000">
+            <Label fx:id="lblNetTotal" layoutX="1098.0" layoutY="500.0" text="0000.00">
                <font>
                   <Font name="SansSerif Bold" size="18.0" />
                </font>
@@ -132,22 +132,22 @@
                   <Font name="SansSerif Bold" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="lblChange" layoutX="1101.0" layoutY="569.0" text="20000">
+            <Label fx:id="lblChange" layoutX="1096.0" layoutY="569.0" text="0000.00">
                <font>
                   <Font name="SansSerif Bold" size="18.0" />
                </font>
             </Label>
-            <JFXButton layoutX="812.0" layoutY="525.0" onAction="#btnRemoveCartItemOnAction" prefHeight="60.0" prefWidth="138.0" style="-fx-background-color: #FF6F61;" text="Remove Item" textFill="WHITE">
+            <JFXButton layoutX="821.0" layoutY="563.0" onAction="#btnRemoveCartItemOnAction" prefHeight="35.0" prefWidth="138.0" style="-fx-background-color: #FF6F61;" text="Remove Item" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </JFXButton>
-            <JFXCheckBox layoutX="883.0" layoutY="615.0" onAction="#chkCash" text="Cash">
+            <JFXCheckBox fx:id="chkCash" layoutX="883.0" layoutY="615.0" text="Cash">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </JFXCheckBox>
-            <JFXCheckBox layoutX="995.0" layoutY="615.0" onAction="#chkCard" text="Card">
+            <JFXCheckBox fx:id="chkCard" layoutX="995.0" layoutY="615.0" text="Card">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -163,6 +163,12 @@
                </font>
             </JFXButton>
             <TextField fx:id="txtAmount" layoutX="1089.0" layoutY="535.0" prefHeight="26.0" prefWidth="101.0" />
+            <Label layoutX="838.0" layoutY="490.0" prefHeight="22.0" prefWidth="71.0" text="Item Qty">
+               <font>
+                  <Font name="SansSerif Bold" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtQty" layoutX="830.0" layoutY="520.0" prefHeight="26.0" prefWidth="101.0" />
          </children>
       </AnchorPane>
    </center>

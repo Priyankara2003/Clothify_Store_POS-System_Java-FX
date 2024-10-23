@@ -1,5 +1,6 @@
 package service.custom;
 
+import dto.OrderDetails;
 import dto.Product;
 import javafx.collections.ObservableList;
 import service.SuperService;
@@ -11,4 +12,5 @@ public interface ProductService extends SuperService {
     ObservableList<Product> getAllProducts();
     boolean updateProductInfo(Product product,int productId);
     boolean deleteProduct(int productId);
+    boolean updateStock(List<OrderDetails> orderDetails);
 }

@@ -1,7 +1,9 @@
 package repository.custom.impl;
 
+import entity.OrderDetailsEntity;
 import entity.ProductEntity;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 import repository.custom.ProductDao;
 import util.HibernateUtil;
 
@@ -45,6 +47,33 @@ public class ProductDaoImpl implements ProductDao {
         session.getTransaction().begin();
         ProductEntity productEntity = session.get(ProductEntity.class, productId);
         session.remove(productEntity);
+        session.getTransaction().commit();
+        session.close();
+        return true;
+    }
+
+    @Override
+    public boolean updateStock(List<OrderDetailsEntity> orderDetailsEntity) {
+        for (OrderDetailsEntity orderDetails:orderDetailsEntity){
+            boolean isAdded = updateStock(orderDetails);
+            if(!isAdded){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public boolean updateStock(OrderDetailsEntity orderDetailsEntity) {
+        Session session = HibernateUtil.getSession();
+        session.getTransaction().begin();
+        ProductEntity productEntity = session.get(ProductEntity.class, orderDetailsEntity.getProductId());
+        if (productEntity==null){
+            return false;
+        }
+        int qtyOnHand = Integer.parseInt(productEntity.getQtyOnHand());
+        productEntity.setQtyOnHand(String.valueOf(qtyOnHand- orderDetailsEntity.getQty()));
+        session.merge(productEntity);
         session.getTransaction().commit();
         session.close();
         return true;
