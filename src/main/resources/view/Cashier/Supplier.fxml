@@ -18,7 +18,7 @@
    <left>
       <VBox prefHeight="346.0" prefWidth="182.0" style="-fx-background-color: #DADADA;" BorderPane.alignment="CENTER">
          <children>
-            <Label text="DashBoard" textFill="#333333">
+            <Label onMouseClicked="#loadDashBoardForm" text="DashBoard" textFill="#333333">
                <VBox.margin>
                   <Insets left="45.0" top="40.0" />
                </VBox.margin>
@@ -26,7 +26,7 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="73.0" layoutY="50.0" text="Sales" textFill="#333333">
+            <Label layoutX="73.0" layoutY="50.0" onMouseClicked="#loadSalesForm" text="Sales" textFill="#333333">
                <VBox.margin>
                   <Insets left="69.0" top="40.0" />
                </VBox.margin>
@@ -34,7 +34,7 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="79.0" layoutY="120.0" text="Inventory" textFill="#333333">
+            <Label layoutX="79.0" layoutY="120.0" onMouseClicked="#loadInventoryForm" text="Inventory" textFill="#333333">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -42,7 +42,7 @@
                   <Insets left="47.0" top="40.0" />
                </VBox.margin>
             </Label>
-            <Label layoutX="57.0" layoutY="191.0" text="Order History" textFill="#333333">
+            <Label layoutX="57.0" layoutY="191.0" onMouseClicked="#loadOrderHistoryForm" text="Order History" textFill="#333333">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -50,7 +50,7 @@
                   <Insets left="30.0" top="40.0" />
                </VBox.margin>
             </Label>
-            <Label layoutX="40.0" layoutY="261.0" text="Reports" textFill="#333333">
+            <Label layoutX="40.0" layoutY="261.0" onMouseClicked="#loadReportForm" text="Reports" textFill="#333333">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -58,7 +58,7 @@
                   <Insets left="54.0" top="40.0" />
                </VBox.margin>
             </Label>
-            <Label layoutX="64.0" layoutY="332.0" text="Suppliers" textFill="#333333">
+            <Label layoutX="64.0" layoutY="332.0" text="Suppliers" textFill="#0073f7">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>

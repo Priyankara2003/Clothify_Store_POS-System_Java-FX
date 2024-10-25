@@ -3,9 +3,15 @@ package controller;
 import dto.Supplier;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import service.ServiceFactory;
 import service.custom.ProductService;
 import service.custom.SupplierService;
@@ -117,6 +123,111 @@ public class SupplierController implements Initializable {
             clearFields();
         } else {
             new Alert(Alert.AlertType.ERROR).show();
+        }
+    }
+
+    @FXML
+    void loadDashBoardForm(MouseEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/Cashier/DashBoard.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+
+            // Get the current window
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            // Close the previous window
+            currentStage.close();
+            stage.setResizable(false);
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void loadOrderHistoryForm(MouseEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/Cashier/OrderHistory.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+
+            // Get the current window
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            // Close the previous window
+            currentStage.close();
+            stage.setResizable(false);
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void loadReportForm(MouseEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/Cashier/Reports.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+
+            // Get the current window
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            // Close the previous window
+            currentStage.close();
+            stage.setResizable(false);
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void loadSalesForm(MouseEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/Cashier/Sales.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+
+            // Get the current window
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            // Close the previous window
+            currentStage.close();
+            stage.setResizable(false);
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void loadInventoryForm(MouseEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/Cashier/Supplier.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+
+            // Get the current window
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            // Close the previous window
+            currentStage.close();
+            stage.setResizable(false);
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

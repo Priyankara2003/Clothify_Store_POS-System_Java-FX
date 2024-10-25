@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginFormController">
+   <left>
+      <AnchorPane prefHeight="400.0" prefWidth="250.0" style="-fx-background-color: #001F3F;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="159.0" fitWidth="235.0" layoutX="8.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/fashion-logo.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="46.0" layoutY="212.0" prefHeight="31.0" prefWidth="158.0" text="Clothify Store" textFill="WHITE">
+               <font>
+                  <Font name="Book Antiqua Bold" size="24.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="0.4526315927505493" green="0.4526315927505493" blue="0.4526315927505493" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Label>
+            <Label layoutX="52.0" layoutY="354.0" prefHeight="31.0" prefWidth="146.0" text="Copyright (c). All Right Reserved." textFill="WHITE">
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="0.4526315927505493" green="0.4526315927505493" blue="0.4526315927505493" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </left>
+   <right>
+      <AnchorPane prefHeight="400.0" prefWidth="350.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="120.0" layoutY="39.0" text="Secure Login">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="29.0" layoutY="118.0" text="Username">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtUsername" layoutX="115.0" layoutY="116.0" prefHeight="26.0" prefWidth="195.0" promptText="Username" />
+            <Label layoutX="29.0" layoutY="178.0" text="Password">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="btnCancel" layoutX="32.0" layoutY="244.0" onAction="#btnLoginOnAction" prefHeight="26.0" prefWidth="282.0" style="-fx-background-color: #4F46E5;" text="Login" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="32.0" layoutY="295.0" onAction="#btnCancelOnAction" prefHeight="26.0" prefWidth="282.0" style="-fx-background-color: #4F46E5;" text="Cancel" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <PasswordField fx:id="txtPassword" layoutX="114.0" layoutY="176.0" prefHeight="26.0" prefWidth="198.0" promptText="Password" />
+            <Label fx:id="lblMassage" alignment="CENTER" layoutX="5.0" layoutY="79.0" prefHeight="18.0" prefWidth="340.0" textFill="RED" />
+         </children>
+      </AnchorPane>
+   </right>
+</BorderPane>

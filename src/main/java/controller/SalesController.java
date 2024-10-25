@@ -11,12 +11,18 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import javafx.stage.Window;
 import service.ServiceFactory;
-import service.SuperService;
 import service.custom.OrderService;
 import service.custom.ProductService;
 import service.custom.impl.OrderServiceImpl;
@@ -29,6 +35,9 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class SalesController implements Initializable {
+
+    @FXML
+    private Button btnRemove;
 
     @FXML
     private TableColumn<?, ?> colCartItmDescription;
@@ -148,7 +157,7 @@ public class SalesController implements Initializable {
             ));
         }
 
-        Order order = new Order(orderId,dateFormatted,calNetTotal(),paymentType,orderDetails);
+        Order order = new Order(orderId,dateFormatted,"Srinath",calNetTotal(),paymentType,orderDetails);
 
         if (new OrderServiceImpl ().placeOrder(order)){
             new Alert(Alert.AlertType.CONFIRMATION,"Order Placed Successfully").show();
@@ -164,6 +173,112 @@ public class SalesController implements Initializable {
         cartItemList.remove(cartItem);
         calNetTotal();
         loadCartItemTable();
+    }
+
+    @FXML
+    void loadInventoryPage(MouseEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/Cashier/Inventory.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+
+            // Get the current window
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            // Close the previous window
+            currentStage.close();
+            stage.setResizable(false);
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @FXML
+    void loadDashBoardForm(MouseEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/Cashier/DashBoard.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+
+            // Get the current window
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            // Close the previous window
+            currentStage.close();
+            stage.setResizable(false);
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void loadOrderHistoryForm(MouseEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/Cashier/OrderHistory.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+
+            // Get the current window
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            // Close the previous window
+            currentStage.close();
+            stage.setResizable(false);
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void loadReportForm(MouseEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/Cashier/Reports.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+
+            // Get the current window
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            // Close the previous window
+            currentStage.close();
+            stage.setResizable(false);
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void loadSupplierForm(MouseEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/Cashier/Inventory.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+
+            // Get the current window
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            // Close the previous window
+            currentStage.close();
+            stage.setResizable(false);
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void loadProductTblData() {

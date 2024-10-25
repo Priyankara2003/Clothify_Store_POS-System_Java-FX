@@ -18,6 +18,7 @@ public class OrderEntity {
     @Id
     private Integer orderId;
     private String date;
+    private String employeeName;
     private Double netTotal;
     private String paymentMethod;
 }
