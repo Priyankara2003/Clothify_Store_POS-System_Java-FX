@@ -8,6 +8,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.modelmapper.ModelMapper;
 import repository.DaoFactory;
+import repository.SuperDao;
 import repository.custom.ProductDao;
 import service.custom.ProductService;
 import util.DaoType;
@@ -57,5 +58,11 @@ public class ProductServiceImpl implements ProductService {
             orderDetailsEntityList.add(new ModelMapper().map(orderDetails1, OrderDetailsEntity.class));
         }
         return daoType.updateStock(orderDetailsEntityList);
+    }
+
+    @Override
+    public String getProductName(Integer productId) {
+        ProductDao productDao = DaoFactory.getInstance().getDaoType(DaoType.Product);
+        return productDao.getProductName(productId);
     }
 }

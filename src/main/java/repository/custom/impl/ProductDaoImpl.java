@@ -78,4 +78,17 @@ public class ProductDaoImpl implements ProductDao {
         session.close();
         return true;
     }
+
+    @Override
+    public String getProductName(Integer productId) {
+        Session session = HibernateUtil.getSession();
+        session.getTransaction().begin();
+        ProductEntity productEntity = session.get(ProductEntity.class, productId);
+        session.getTransaction().commit();
+        session.close();
+        if (productEntity==null){
+            return null;
+        }
+        return productEntity.getProductName();
+    }
 }

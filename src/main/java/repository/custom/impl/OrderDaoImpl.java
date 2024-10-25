@@ -28,4 +28,14 @@ public class OrderDaoImpl implements OrderDao {
         }
         return selectOrderIdFromOrders.getLast();
     }
+
+    @Override
+    public List<OrderEntity> getAllOrders() {
+        Session session = HibernateUtil.getSession();
+        session.getTransaction().begin();
+        List<OrderEntity> resultList = session.createNativeQuery("SELECT * FROM orders", OrderEntity.class).getResultList();
+        session.getTransaction().commit();
+        session.close();
+        return resultList;
+    }
 }

@@ -9,4 +9,5 @@ import java.util.List;
 public interface ProductDao extends CrudRepository<ProductEntity> {
     boolean updateStock(List<OrderDetailsEntity> orderDetailsEntity);
     boolean updateStock(OrderDetailsEntity orderDetailsEntity);
+    String getProductName(Integer productId);
 }

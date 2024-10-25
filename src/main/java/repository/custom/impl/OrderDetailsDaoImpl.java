@@ -1,6 +1,7 @@
 package repository.custom.impl;
 
 import entity.OrderDetailsEntity;
+import entity.OrderEntity;
 import org.hibernate.Session;
 import repository.custom.OrderDetailsDao;
 import util.HibernateUtil;
@@ -26,5 +27,15 @@ public class OrderDetailsDaoImpl implements OrderDetailsDao {
         session.getTransaction().commit();
         session.close();
         return true;
+    }
+
+    @Override
+    public List<OrderDetailsEntity> getAllDetails(Integer orderId) {
+        Session session = HibernateUtil.getSession();
+        session.getTransaction().begin();
+        List<OrderDetailsEntity> resultList = session.createNativeQuery("SELECT * FROM orderdetails where orderId = \""+orderId+"\"", OrderDetailsEntity.class).getResultList();
+        session.getTransaction().commit();
+        session.close();
+        return resultList;
     }
 }

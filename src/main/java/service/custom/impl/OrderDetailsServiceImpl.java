@@ -2,6 +2,8 @@ package service.custom.impl;
 
 import dto.OrderDetails;
 import entity.OrderDetailsEntity;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import repository.DaoFactory;
@@ -32,5 +34,16 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
         OrderDetailsDao orderDetailsDao = DaoFactory.getInstance().getDaoType(DaoType.OrderDetails);
         OrderDetailsEntity orderDetailsEntity = mapper.map(orderDetails, OrderDetailsEntity.class);
         return orderDetailsDao.addOrderDetail(orderDetailsEntity);
+    }
+
+    @Override
+    public ObservableList<OrderDetails> getAllDedtails(Integer orderId) {
+        ObservableList<OrderDetails> orderDetailsObservableList = FXCollections.observableArrayList();
+        OrderDetailsDao orderDetailsDao = DaoFactory.getInstance().getDaoType(DaoType.OrderDetails);
+        List<OrderDetailsEntity> allDetails = orderDetailsDao.getAllDetails(orderId);
+        for (OrderDetailsEntity orderDetailsEntity : allDetails){
+            orderDetailsObservableList.add(mapper.map(orderDetailsEntity,OrderDetails.class));
+        }
+        return orderDetailsObservableList;
     }
 }
